@@ -1,0 +1,3 @@
+[submodule "components/I2C_dev"]
+	path = components/I2C_dev
+	url = https://github.com/LuongHuuPhuc/I2C_dev_Middleware_Layer_idf
