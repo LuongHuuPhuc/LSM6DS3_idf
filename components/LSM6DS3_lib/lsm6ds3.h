@@ -26,13 +26,15 @@ extern "C" {
  *  - BW (Bandwidth): Bang thong bo loc 
  */
 
-#define LSM6DS3_DEFAULT_ADDR_0     0x6A
+#define LSM6DS3_DEFAULT_ADDR_0     0x6A //Day la dia chi I2C (dung nham voi ma dinh dang chip)
 #define LSM6DS3_DEFAULT_ADDR_1     0x6B
 
 /**********************DIA CHI DINH DANH CUA LSM6DS3*******************/
 
-#define LSM6DS3_CHIP_ID            0x69
-#define LSM6DS3_WHO_AM_I_REG       0X0F
+#define LSM6DS3_CHIP_ID_1          0x69 //Gia tri ma nhan dang chip (sau khi doc thanh ghi WHO_AM_I)
+#define LSM6DS3_CHIP_ID_2          0x6C //Gia tri ma nhan dang chip (sau khi doc thanh ghi WHO_AM_I)
+#define LSM6DS3_CHIP_ID_3          0x6A //Gia tri ma nhan dang chip (sau khi doc thanh ghi WHO_AM_I)
+#define LSM6DS3_WHO_AM_I_REG       0X0F //Thanh ghi de nhan dang chip
 #define LSM6DS3_CTRL1_XL           0X10 //Thanh ghi Accelerometer
 #define LSM6DS3_CTRL2_G            0X11 //Thanh ghi Gyroscope
 

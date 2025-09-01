@@ -55,7 +55,7 @@ esp_err_t lsm6ds3_readPartID(I2C_dev_init_t *dev){
   I2C_DEV_CHECK(dev, i2c_dev_read_byte(dev, dev->address, LSM6DS3_WHO_AM_I_REG, &data, i2c_dev_read_timeout, NULL));
   I2C_DEV_GIVE_MUTEX(dev);
 
-  if(data != LSM6DS3_CHIP_ID){
+  if(data != LSM6DS3_CHIP_ID_1 && data != LSM6DS3_CHIP_ID_2 && data != LSM6DS3_CHIP_ID_3){
     ESP_LOGE(pcTaskGetName(NULL), "LSM6DS3_CHIP_ID not found !");
     ESP_LOGI("LSM6DS3_CHIP_ID", "WHO_AM_I = 0x%02X", data);
     return ESP_ERR_NOT_FOUND;
@@ -73,7 +73,7 @@ int lsm6ds3_begin(I2C_dev_init_t *dev){
     return -1;
   }
 
-  if(value != 0x6C && value != 0x69){
+  if(value != LSM6DS3_CHIP_ID_1 && value != LSM6DS3_CHIP_ID_2 && value != LSM6DS3_CHIP_ID_3){
     lsm6ds3_end(dev);
     return -1;
   }
